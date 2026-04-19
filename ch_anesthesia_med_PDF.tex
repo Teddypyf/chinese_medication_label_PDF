@@ -1,0 +1,32 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{xeCJK}
+\setCJKmainfont{LXGWNeoXiHei.ttf}
+\usepackage{tikz}
+
+\begin{document}
+	\begin{tikzpicture}
+
+		% --- 定义颜色 ---
+		\definecolor{myblue}{RGB}{24, 56, 120}
+		\definecolor{myline}{RGB}{160, 190, 210}
+
+		% --- 深蓝色圆角背景 ---
+		\fill[myblue, rounded corners=2pt] (0,0) rectangle (4,4);
+
+		% --- 中心白色圆形 ---
+		\fill[white] (2,2) circle (1.6);
+
+		% --- 上下两条水平浅色线（穿过整个方块） ---
+		\draw[white, line width=1.2pt] (0, 2.95) -- (4, 2.95);
+		\draw[white, line width=1.2pt] (0, 1.05) -- (4, 1.05);
+
+		% --- 绘制圆角外框 ---
+		\draw[myblue!70!black, line width=2pt, rounded corners=2pt]
+		(0, 0) rectangle (4, 4);
+
+		% --- 放置文字"麻" ---
+		\node[text=myblue, font=\fontsize{76}{76}\selectfont\bfseries]
+		at (2, 2.15) {麻};
+
+	\end{tikzpicture}
+\end{document}

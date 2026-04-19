@@ -1,0 +1,21 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{xeCJK}
+\setCJKmainfont{LXGWNeoXiHei.ttf}
+\usepackage{tikz}
+
+\begin{document}
+	\begin{tikzpicture}
+
+		% --- 黑色圆形背景 ---
+		\fill[black] (2,2.4) circle (2);
+
+		% --- 放置文字"毒"（白色，圆内居中） ---
+		\node[text=white, font=\fontsize{76}{76}\selectfont\bfseries]
+		at (2, 2.4) {毒};
+
+		% --- 下方文字"毒性药品" ---
+		\node[text=black, font=\fontsize{20}{20}\selectfont]
+		at (2, -0.15) {毒性药品};
+
+	\end{tikzpicture}
+\end{document}

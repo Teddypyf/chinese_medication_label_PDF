@@ -1,0 +1,49 @@
+\documentclass[tikz,border=5pt]{standalone}
+\usepackage{xeCJK}
+\setCJKmainfont{LXGWNeoXiHei.ttf}
+\usepackage{tikz}
+
+% --- 参数化四字内容（可在此处修改）---
+\newcommand{\charTL}{精}
+\newcommand{\charTR}{神}
+\newcommand{\charBL}{药}
+\newcommand{\charBR}{品}
+
+\begin{document}
+	\begin{tikzpicture}
+
+		% --- 定义颜色 ---
+		\definecolor{mygreen}{RGB}{58, 140, 68}
+
+		% --- 用裁剪绘制圆角外框内的色块 ---
+		\begin{scope}
+			\clip[rounded corners=2pt] (0,0) rectangle (4,4);
+			% 右上绿色（神）
+			\fill[mygreen] (2,2) rectangle (4,4);
+			% 左下绿色（药）
+			\fill[mygreen] (0,0) rectangle (2,2);
+		\end{scope}
+
+		% --- 绘制圆角外框 ---
+		\draw[mygreen, line width=2pt, rounded corners=2pt]
+		(0, 0) rectangle (4, 4);
+
+		% --- 放置文字 ---
+		% 左上：精（绿色字，白色底）
+		\node[text=mygreen, font=\fontsize{40}{40}\selectfont\bfseries]
+		at (1, 3) {\charTL};
+
+		% 右上：神（白色字，绿色底）
+		\node[text=white, font=\fontsize{40}{40}\selectfont\bfseries]
+		at (3, 3) {\charTR};
+
+		% 左下：药（白色字，绿色底）
+		\node[text=white, font=\fontsize{40}{40}\selectfont\bfseries]
+		at (1, 1) {\charBL};
+
+		% 右下：品（绿色字，白色底）
+		\node[text=mygreen, font=\fontsize{40}{40}\selectfont\bfseries]
+		at (3, 1) {\charBR};
+
+	\end{tikzpicture}
+\end{document}
